@@ -1,0 +1,238 @@
+
+
+
+commands so far
+
+
+marceloluz@ubuntu-24:~$ git --version
+git version 2.43.0
+marceloluz@ubuntu-24:~$ git config --global user.name `Marceloluz`
+Marceloluz: command not found
+marceloluz@ubuntu-24:~$ sudo git config --global user.name `Marceloluz`
+Marceloluz: command not found
+[sudo] password for marceloluz: 
+sudo: a password is required
+marceloluz@ubuntu-24:~$ sudo git config --global user.name 'Marceloluz'
+[sudo] password for marceloluz: 
+marceloluz@ubuntu-24:~$ git config --global user.name 'Marceloluz'
+marceloluz@ubuntu-24:~$ git config --global user.email 'marceloluz.sys.adm@gmail.com'
+marceloluz@ubuntu-24:~$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/marceloluz/.git/
+marceloluz@ubuntu-24:~$ git config --global init.defaultBranch name
+marceloluz@ubuntu-24:~$ CD Desktop/
+CD: command not found
+marceloluz@ubuntu-24:~$ cd Desktop/
+marceloluz@ubuntu-24:~/Desktop$ mkdir mastering-git
+marceloluz@ubuntu-24:~/Desktop$ cd mastering-git/
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git init
+Initialized empty Git repository in /home/marceloluz/Desktop/mastering-git/.git/
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ ls 
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ ls -ltra
+total 12
+drwxr-xr-x 60 marceloluz marceloluz 4096 Jul 23 01:29 ..
+drwxrwxr-x  3 marceloluz marceloluz 4096 Jul 23 01:29 .
+drwxrwxr-x  7 marceloluz marceloluz 4096 Jul 23 01:29 .git
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ 
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git init
+Reinitialized existing Git repository in /home/marceloluz/Desktop/mastering-git/.git/
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ touch hello.js
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ nano hello.js 
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ ls
+hello.js
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ touch readme.md
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ nano readme.md 
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ ls
+hello.js  readme.md
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git status
+On branch name
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	hello.js
+	readme.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git add readme.md 
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git commit -m 'ADD readme.md file'
+[name (root-commit) 9d4744e] ADD readme.md file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.md
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git status
+On branch name
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	hello.js
+
+nothing added to commit but untracked files present (use "git add" to track)
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ touch test.js
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ nano test.js
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git status
+On branch name
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	hello.js
+	test.js
+
+nothing added to commit but untracked files present (use "git add" to track)
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git add ./
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git status
+On branch name
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   hello.js
+	new file:   test.js
+
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git commit -m 'ADD hello and test files'
+[name 2e75c99] ADD hello and test files
+ 2 files changed, 2 insertions(+)
+ create mode 100644 hello.js
+ create mode 100644 test.js
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git log
+commit 2e75c992ab465bbcbada0af4a248ea3949f06cbc (HEAD -> name)
+Author: Marceloluz <marceloluz.sys.adm@gmail.com>
+Date:   Wed Jul 23 01:44:11 2025 -0300
+
+    ADD hello and test files
+
+commit 9d4744e7307373882b1c903decd967fbb26f7123
+Author: Marceloluz <marceloluz.sys.adm@gmail.com>
+Date:   Wed Jul 23 01:40:03 2025 -0300
+
+    ADD readme.md file
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout 9d4744e7307373882b1c903decd967fbb26f7123
+Note: switching to '9d4744e7307373882b1c903decd967fbb26f7123'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 9d4744e ADD readme.md file
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout main
+error: pathspec 'main' did not match any file(s) known to git
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout 9d4744e7307373882b1c903decd967fbb26f7123
+HEAD is now at 9d4744e ADD readme.md file
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout main
+error: pathspec 'main' did not match any file(s) known to git
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ cd
+marceloluz@ubuntu-24:~$ git config --global init.defaultBranch main
+marceloluz@ubuntu-24:~$ cd /Desktop/mastering-git
+bash: cd: /Desktop/mastering-git: No such file or directory
+marceloluz@ubuntu-24:~$ cd /Desktop/
+bash: cd: /Desktop/: No such file or directory
+marceloluz@ubuntu-24:~$ cd Desktop/
+marceloluz@ubuntu-24:~/Desktop$ cd mastering-git/
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout main
+error: pathspec 'main' did not match any file(s) known to git
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout 9d4744e7307373882b1c903decd967fbb26f7123
+HEAD is now at 9d4744e ADD readme.md file
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout main
+error: pathspec 'main' did not match any file(s) known to git
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ nano readme.md 
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git commit 
+HEAD detached at 9d4744e
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   readme.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git log
+commit 9d4744e7307373882b1c903decd967fbb26f7123 (HEAD)
+Author: Marceloluz <marceloluz.sys.adm@gmail.com>
+Date:   Wed Jul 23 01:40:03 2025 -0300
+
+    ADD readme.md file
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git add ./
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git log
+commit 9d4744e7307373882b1c903decd967fbb26f7123 (HEAD)
+Author: Marceloluz <marceloluz.sys.adm@gmail.com>
+Date:   Wed Jul 23 01:40:03 2025 -0300
+
+    ADD readme.md file
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git log
+commit 9d4744e7307373882b1c903decd967fbb26f7123 (HEAD)
+Author: Marceloluz <marceloluz.sys.adm@gmail.com>
+Date:   Wed Jul 23 01:40:03 2025 -0300
+
+    ADD readme.md file
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout 9d4744e7307373882b1c903decd967fbb26f7123
+M	readme.md
+HEAD is now at 9d4744e ADD readme.md file
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout main
+error: pathspec 'main' did not match any file(s) known to git
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git branch -a
+* (HEAD detached at 9d4744e)
+  name
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout master
+error: pathspec 'master' did not match any file(s) known to git
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout name
+M	readme.md
+Previous HEAD position was 9d4744e ADD readme.md file
+Switched to branch 'name'
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout name 
+M	readme.md
+Already on 'name'
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git branch -m name main 
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout main
+M	readme.md
+Already on 'main'
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout 9d4744e7307373882b1c903decd967fbb26f7123
+M	readme.md
+Note: switching to '9d4744e7307373882b1c903decd967fbb26f7123'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 9d4744e ADD readme.md file
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout main
+M	readme.md
+Previous HEAD position was 9d4744e ADD readme.md file
+Switched to branch 'main'
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ git checkout -f main
+Already on 'main'
+marceloluz@ubuntu-24:~/Desktop/mastering-git$ 
+
+
+------continuar assistindo --https://www.youtube.com/watch?v=S7XpTAnSDL4--- tempo:14min
+
+
+
+
+
+
+
